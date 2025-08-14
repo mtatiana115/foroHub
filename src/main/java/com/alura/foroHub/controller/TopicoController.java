@@ -52,4 +52,15 @@ public class TopicoController {
         Page<Topico> topicosActivos = topicoRepository.findAllByStatusTrue(paginacion);
         return ResponseEntity.ok(topicosActivos.map(DatosListadoTopico::new));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DatosRespuestaTopico> detallarTopico(@PathVariable Long id) {
+        Optional<Topico> topicoOptional = topicoRepository.findById(id);
+        if (topicoOptional.isPresent()) {
+            Topico topico = topicoOptional.get();
+            return ResponseEntity.ok(new DatosRespuestaTopico(topico));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
