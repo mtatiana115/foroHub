@@ -39,8 +39,12 @@ public class Topico {
     }
     
     public void actualizarDatos(DatosActualizarTopico datos) {
-        this.titulo = datos.getTitulo();
-        this.mensaje = datos.getMensaje();
-        this.curso = datos.getCurso();
+        this.titulo = datos.titulo();
+        this.mensaje = datos.mensaje();
+        this.curso = datos.curso();
+    }
+
+    public void desactivarTopico() {
+        this.status = false;
     }
 }
