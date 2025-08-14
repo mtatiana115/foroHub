@@ -37,4 +37,10 @@ public class Topico {
         this.autor = autor;
         this.curso = curso;
     }
+    
+    public void actualizarDatos(DatosActualizarTopico datos) {
+        this.titulo = datos.getTitulo();
+        this.mensaje = datos.getMensaje();
+        this.curso = datos.getCurso();
+    }
 }
